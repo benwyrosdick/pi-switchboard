@@ -29,16 +29,22 @@ Inside the panel:
 
 ## Install
 
-From this directory:
+From npm:
+
+```bash
+pi install npm:pi-switchboard
+```
+
+That adds it to `~/.pi/agent/settings.json` and loads it on the next start. Pin a release with `pi install npm:pi-switchboard@0.1.0`. Try it once without installing:
+
+```bash
+pi -e npm:pi-switchboard
+```
+
+From a checkout of this repo:
 
 ```bash
 pi install .
-```
-
-Or load it once without installing:
-
-```bash
-pi -e /home/ben/Projects/pi-switchboard
 ```
 
 Then `/reload` after edits.
