@@ -1,0 +1,19 @@
+README.md
+  s_33bd26c4e7511f::t_3991a9564cd293 32,35-41,44,47
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "4107090f34ec765236a8bd5e31815b47181e3dea",
+  "prompts": {},
+  "sessions": {
+    "s_33bd26c4e7511f": {
+      "agent_id": {
+        "tool": "pi",
+        "id": "01a1ae2f-5f64-74fe-9d63-da31891ba182",
+        "model": "grok-4.7"
+      },
+      "human_author": "Ben Wyrosdick <ben.wyrosdick@gmail.com>"
+    }
+  }
+}
