@@ -1,0 +1,20 @@
+CHANGELOG.md
+  h_4d9554034adb05 1-7
+README.md
+  h_4d9554034adb05 1-50
+extensions/index.ts
+  h_4d9554034adb05 1-767
+package.json
+  h_4d9554034adb05 1-14
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "ddd58093d32a07ff7a452c770a3bf7b2406bc8c3",
+  "prompts": {},
+  "humans": {
+    "h_4d9554034adb05": {
+      "author": "Ben Wyrosdick <ben.wyrosdick@gmail.com>"
+    }
+  }
+}
