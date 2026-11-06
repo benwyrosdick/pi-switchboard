@@ -210,17 +210,19 @@ async function openPanel(pi: ExtensionAPI, ctx: ExtensionCommandContext): Promis
 }
 
 function panelOverlayOptions() {
-	const cols = process.stdout.columns || 80;
-	const rows = process.stdout.rows || 24;
-	if (cols < 72) {
-		return { anchor: "center" as const, width: Math.max(36, cols - 4), maxHeight: Math.max(12, rows - 2) };
-	}
+	const cols = process.stdout.columns || 100;
+	const rows = process.stdout.rows || 32;
 	return {
-		anchor: "left-center" as const,
-		width: Math.min(52, Math.max(40, Math.floor(cols * 0.38))),
-		maxHeight: Math.max(12, rows - 1),
-		margin: 0,
+		anchor: "center" as const,
+		width: Math.min(cols - 4, Math.max(72, Math.floor(cols * 0.72))),
+		maxHeight: Math.max(20, rows - 2),
+		margin: 1,
 	};
+}
+
+function panelHeight(): number {
+	const rows = process.stdout.rows || 32;
+	return Math.max(20, rows - 4);
 }
 
 async function createConversation(ctx: ExtensionCommandContext): Promise<void> {
@@ -495,6 +497,7 @@ class SwitchboardPanel {
 			}
 		}
 
+		const footerStart = lines.length;
 		lines.push(rule(""));
 		if (this.renaming) {
 			lines.push(rule(` ${theme.fg("accent", "rename")} ${this.renameText}${theme.fg("accent", "▏")}`));
@@ -504,6 +507,9 @@ class SwitchboardPanel {
 			lines.push(rule(` ${theme.fg("dim", "← or ctrl+\\ close  / filter")}`));
 		}
 		lines.push(theme.fg("border", `╰${"─".repeat(inner)}╯`));
+		const target = Math.min(panelHeight(), process.stdout.rows || panelHeight());
+		const missing = target - lines.length;
+		if (missing > 0) lines.splice(footerStart, 0, ...Array.from({ length: missing }, () => rule("")));
 		return lines.map((line) => truncateToWidth(line, width));
 	}
 
@@ -528,7 +534,7 @@ class SwitchboardPanel {
 	}
 
 	private windowRows(all: Row[], selectable: Row[]): Row[] {
-		const budget = Math.max(4, (process.stdout.rows || 24) - 12);
+		const budget = Math.max(12, panelHeight() - 8);
 		const selected = selectable[this.selected];
 		const index = selected ? all.indexOf(selected) : 0;
 		const start = index >= budget ? index - budget + 1 : 0;
