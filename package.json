@@ -1,0 +1,14 @@
+{
+  "name": "pi-switchboard",
+  "version": "0.1.0",
+  "description": "Switch between Pi conversations the way Grok's Ctrl+\\ dashboard and Claude Code's left-arrow agents view do.",
+  "keywords": ["pi-package"],
+  "type": "module",
+  "pi": {
+    "extensions": ["./extensions/index.ts"]
+  },
+  "peerDependencies": {
+    "@earendil-works/pi-coding-agent": "*",
+    "@earendil-works/pi-tui": "*"
+  }
+}
