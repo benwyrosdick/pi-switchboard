@@ -1,0 +1,23 @@
+package.json
+  s_33bd26c4e7511f::t_48edcbc1416d7b 3
+CHANGELOG.md
+  s_33bd26c4e7511f::t_e4bb62b9b1ca94 3-7
+README.md
+  s_33bd26c4e7511f::t_32a1c721c90222 38
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "5c2548cc0c4954bce1304e7de7ebbc7557387fbf",
+  "prompts": {},
+  "sessions": {
+    "s_33bd26c4e7511f": {
+      "agent_id": {
+        "tool": "pi",
+        "id": "01a1ae2f-5f64-74fe-9d63-da31891ba182",
+        "model": "grok-4.7"
+      },
+      "human_author": "Ben Wyrosdick <ben.wyrosdick@gmail.com>"
+    }
+  }
+}
